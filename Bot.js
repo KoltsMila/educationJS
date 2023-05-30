@@ -14,14 +14,14 @@ let keyword = keywords[getRandom(0, keywords.length)];
 let links = document.links;
 let btnK = document.getElementsByName("btnK")[0];
 
-if (btnK != undefined) {
+if (btnK !== undefined) {
     //работа на главной странице
     document.getElementsByName("q")[0].value = keyword;
     btnK.click();
 } else {
 //работаем в поисковой выдаче
-    for(let i = 0; i < links.length; i++) {
-  if (links[i].href.indexOf("napli.ru") != -1) {
+  for(let i = 0; i < links.length; i++) {
+    if (links[i].href.indexOf("napli.ru") != -1) {
       let link = links[i];
       console.log("Нашел строку " + link);
       link.click();
