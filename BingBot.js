@@ -5,7 +5,7 @@
 // @description  try to take over the world!
 // @author       Koltsova Mila
 // @match        https://www.bing.com/*
-// @match        https://travelest.ru/*
+// @match        https://dogtricks.ru/*
 // @match        https://openarium.ru/*
 // @match        https://adventure-guide.ru/*
 // @icon         data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
@@ -13,7 +13,7 @@
 // ==/UserScript==
 
 let sites = {
-"travelest.ru": ["Пеший путеводитель по Афинам - 2023", "Куда поехать отдохнуть в июле в России", "Как спланировать отдых на Байкале летом", "Кэшбэк по картам Мир"],
+"dogtricks.ru": ["Тест на знание пород собак", "Гонки на собачьих упряжках", "Как научить собаку прыгать через барьер", "Поисково-спасательная служба"],
 "openarium.ru": ["Гора Южная Демерджи", "Пляж Виктория", "Озеро Карымское (Karymskoe Lake)"],
 "adventure-guide.ru" : ["Где посмотреть на китов вживую. Подборка локаций", "Отдых на Сахалине", "Достопримечательности Камчатки"]
 }
@@ -22,8 +22,8 @@ let keywords = sites[site];
 let keyword = keywords[getRandom(0, keywords.length)];
 let links = document.links;
 let search = document.getElementsByName("search")[0];
+//let search = document.getElementById("sb_form_go");
 let bingInput = document.getElementById("sb_form_q");
-
 //let bingInput = document.getElementsByName("q")[0];
 
 //cookie
@@ -44,13 +44,13 @@ if (search !== undefined) {
       clearInterval(timerId);
       search.click();
     }
-  }, 300);
+  }, 370);
 } else if (location.hostname == site) {
     //работа на целевом сайте
-  console.log("Мы на целевом сайте");
+  console.log("Нахожусь на целевом сайте");
   setInterval(() => {
     let index = getRandom(0, links.length);
-    if (getRandom(0, 101) >= 70) {
+    if (getRandom(0, 101) >= 60) {
       location.href = "https://www.bing.com/";
     }
       //перебор ссылок и их кликабельность
